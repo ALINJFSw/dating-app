@@ -39,3 +39,12 @@ Work_place.home_work.HomePageRendering = () => {
         main.appendChild(welcome);
     }
 }
+
+Work_place.home_work.getSearch = () => {
+    const search = document.getElementById("search").value;
+    const ageFilter = document.getElementById("age-filter").checked;
+    const locationFilter = document.getElementById("location-filter").checked;
+    console.log(search);
+    console.log(ageFilter);
+    console.log(locationFilter);
+}

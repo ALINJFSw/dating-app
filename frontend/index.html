@@ -129,27 +129,39 @@
       <div class="wrap">
         <div class="search">
           <input
+          id="search"
             type="text"
             class="searchTerm"
-            placeholder="What are you looking for?"
+            placeholder="Search for a partner ?"
           />
-          <button type="submit" class="searchButton">
+          <button id="submit-search" type="submit" class="searchButton">
             <i class="fa fa-search"></i>
           </button>
         </div>
         <div class="hobbies radio">
           <div>
             <label>
-              <input style="display: none;" type="checkbox" name="user-hobbies" value="cooking" />
+              <input style="display: none;" id="age-filter" type="checkbox" name="user-filter" value="age" />
               <span>Filter by my Age</span>
             </label>
           </div>
           <div>
             <label>
-              <input style="display: none;" type="checkbox" name="user-hobbies" value="cooking" />
+              <input style="display: none;" id="location-filter" type="checkbox" name="user-filter" value="location" />
               <span>Filter by my location</span>
             </label>
           </div>
+        </div>
+      </div>
+      <div class="users" id="result-search">
+        <div class="user">
+            <img src="./img/Unknown_person.jpg" alt="" class="user__image"/>
+            <div>
+                <h5>Alinj sama</h5>
+                <h6>bioawdsdawdsawdasawd wdwd awda d
+                    dawdsaawdsawds
+                </h6>
+            </div>
         </div>
       </div>
     </div>
