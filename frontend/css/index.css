@@ -21,20 +21,121 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 12vh;
+    margin-top: 1rem;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
+nav {
+    display: block;
+}
 
 .nav-links ul{
     display: flex;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .nav-links li {
-    margin-right: 60px;
+    margin-left: 60px;
     font-size: 20px;
     font-weight: 200;
 }
 .header-title {
-    font-size: 3rem;
-    padding-left: 2rem;
+    font-size: 30px;
+    padding-left: 1rem;
 }
+
+
+.primary-button {
+    background: #51b0d3;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 65px;
+    transition: 0.3s all;
+  }
+
+  .primary-button:hover {
+    background: #ec95ba;
+  }
+
+  .main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-title {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .main-title h1 {
+  
+    font-size: 11vw;
+  }
+  
+  .main-title h2 {
+    
+    font-size: 4vw;
+    margin-bottom: 20px;
+  }
+
+  .hum {
+    padding-right: 2rem;
+    display: none;
+  }
+
+  .hum span {   
+    display: block;
+    width: 35px;
+    height: 3px;
+    background:#000;
+    margin-top: 6px;
+  }
+
+  .phoneNav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #51b0d3;
+    transition: 2s;
+
+  }
+  @media (max-width:925px) {
+    .hum{
+        display: block;
+    }
+    nav {
+        display:none ;
+    }
+    
+    .phoneNav ul {
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 6rem;
+    }
+    .phoneNav li {
+        font-size: 7vh;
+        margin: 0;
+        margin-top: 50px;
+        text-align: center;
+    }
+    .primary-button {
+        background: #ec95ba;
+    }
+    .primary-button:hover {
+        background: #ef9052;
+        color: #000;
+      }
+  }
+
