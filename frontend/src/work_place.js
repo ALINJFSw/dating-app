@@ -1,6 +1,7 @@
 const Work_place =  {};
-Work_place.showNav = false;
-Work_place.showPhoneNav = () => {
+Work_place.home_work = {}
+Work_place.home_work.showNav = false;
+Work_place.home_work.showPhoneNav = () => {
     const Phonenav = document.getElementById("phoneNav");
     if (Work_place.showNav == false) {
         Phonenav.style.display = "block";
