@@ -5,38 +5,60 @@
     <link rel="stylesheet" href="./css/index.css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <title>Document</title>
   </head>
   <body>
-    <div  class="phoneNav" id="phoneNav">
+    <div class="phoneNav" id="phoneNav">
       <ul id="ul1">
         <li>
-            <a href="lover.html">
-                <div class="profile">
-                    <img id="avatar" class="avatar" src="./img/notification-bell.svg" alt="">
-                </div> 
-            </a>
-          </li>
-          <li><a href="messages.html">
+          <a href="lover.html">
             <div class="profile">
-                <img id="avatar" class="avatar" src="./img/love-removebg-preview.png" alt="">
-            </div> 
-          </a></li>
-          <li>
-            <a href="notification">
-                <div class="profile">
-                    <img id="avatar" class="avatar" src="./img/messages.png" alt="">
-                </div> 
-            </a>
-          </li>
-          <li>
+              <img
+                id="avatar"
+                class="avatar"
+                src="./img/notification-bell.svg"
+                alt=""
+              />
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="messages.html">
+            <div class="profile">
+              <img
+                id="avatar"
+                class="avatar"
+                src="./img/love-removebg-preview.png"
+                alt=""
+              />
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="notification">
+            <div class="profile">
+              <img id="avatar" class="avatar" src="./img/messages.png" alt="" />
+            </div>
+          </a>
+        </li>
+        <li>
           <a href="profile">
             <div class="profile">
-                <p>ali janbein</p>
-                <img id="avatar" class="avatar" src="./img/Unknown_person.jpg" alt="">
-            </div> 
-        </a>
-           </li>      
+              <p>ali janbein</p>
+              <img
+                id="avatar"
+                class="avatar"
+                src="./img/Unknown_person.jpg"
+                alt=""
+              />
+            </div>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="header">
@@ -45,35 +67,55 @@
       <nav>
         <div id="web-links" class="nav-links">
           <ul id="ul2">
-                
             <li>
-                <a href="lover.html">
-                    <div class="profile">
-                        <img id="avatar" class="avatar" src="./img/notification-bell.svg" alt="">
-                    </div> 
-                </a>
-              </li>
-              <li><a href="messages.html">
+              <a href="lover.html">
                 <div class="profile">
-                    <img id="avatar" class="avatar" src="./img/love-removebg-preview.png" alt="">
-                </div> 
-              </a></li>
-              <li>
-                <a href="notification">
-                    <div class="profile">
-                        <img id="avatar" class="avatar" src="./img/messages.png" alt="">
-                    </div> 
-                </a>
-              </li>
-              <li>
+                  <img
+                    id="avatar"
+                    class="avatar"
+                    src="./img/notification-bell.svg"
+                    alt=""
+                  />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="messages.html">
+                <div class="profile">
+                  <img
+                    id="avatar"
+                    class="avatar"
+                    src="./img/love-removebg-preview.png"
+                    alt=""
+                  />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="notification">
+                <div class="profile">
+                  <img
+                    id="avatar"
+                    class="avatar"
+                    src="./img/messages.png"
+                    alt=""
+                  />
+                </div>
+              </a>
+            </li>
+            <li>
               <a href="profile">
                 <div class="profile">
-                    <p>ali janbein</p>
-                    <img id="avatar" class="avatar" src="./img/Unknown_person.jpg" alt="">
-                </div> 
-            </a>
-               </li>      
-            
+                  <p>ali janbein</p>
+                  <img
+                    id="avatar"
+                    class="avatar"
+                    src="./img/Unknown_person.jpg"
+                    alt=""
+                  />
+                </div>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -84,8 +126,31 @@
       </div>
     </div>
     <div id="main" class="main">
-      <div id="user-content">
-        dawdsa
+      <div class="wrap">
+        <div class="search">
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="What are you looking for?"
+          />
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+        <div class="hobbies radio">
+          <div>
+            <label>
+              <input style="display: none;" type="checkbox" name="user-hobbies" value="cooking" />
+              <span>Filter by my Age</span>
+            </label>
+          </div>
+          <div>
+            <label>
+              <input style="display: none;" type="checkbox" name="user-hobbies" value="cooking" />
+              <span>Filter by my location</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
 

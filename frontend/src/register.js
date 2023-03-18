@@ -4,4 +4,6 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const age = document.getElementById("age");
 const city = document.getElementById("city");
+const male = document.getElementById("male");
+const female = document.getElementById("female");
 

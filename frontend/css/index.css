@@ -71,7 +71,8 @@ nav {
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
+    margin-top: 10rem;
   }
 
   .main-title {
@@ -121,8 +122,91 @@ nav {
     background: #fd2f6c;
     transition: 2s;
 
+
   }
+
+  .search {
+    width: 100%;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    color: #9DBFAF;
+    
+
+  }
+  
+  .gender div {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .hobbies {
+    display: flex;
+  }
+  
+  .hobbies div{
+    display: inline-block;
+    margin: 5px;
+  }
+  
+  .radio div label span {
+    display: inline-block;
+    background: transparent;
+    border: 2px white solid;
+    border-radius: 50px;
+    padding: 10px 5px;
+    color: #ffffff;
+    width: 10rem;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.5s all;
+    font-weight: bold;
+  }
+  
+ 
+  .radio div label input[type="checkbox"]:checked ~ span {
+    
+    background: white;
+    color: #e91e63;
+    box-shadow: 0 2px 20px white;
+  }
+  
+  input:focus {
+    transform: scale(1.1);
+    border: 2px solid #e91e63;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .wrap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+} 
+  
+  
+  
   @media (max-width:925px) {
+
     .hum{
         display: block;
     }
@@ -151,6 +235,12 @@ nav {
         background: #8be78b;
         color: #000;
       }
+      .radio div label span {
+        font-size: 10px;
+    }
+    .wrap {
+        flex-direction: column;
+    }
   }
   @media (min-width:925px) {
     .phoneNav ul{
