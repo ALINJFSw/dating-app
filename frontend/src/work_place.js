@@ -48,3 +48,9 @@ Work_place.home_work.getSearch = () => {
     console.log(ageFilter);
     console.log(locationFilter);
 }
+
+
+Work_place.send_message = async() => {
+    const message = document.getElementById('message').value;
+    
+}
