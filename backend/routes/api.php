@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\FavoritController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -29,4 +31,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::post('/add-to-favorite',[FavoritController::class, "addToFavorite"]);
 Route::post('/block',[blockController::class, "block"]);
+Route::post('/send-message',[MessageController::class, "sendMessage"]);
+Route::get('/get-messages',[MessageController::class, "getMessages"]);
+Route::get('/get-notifications',[NotificationController::class, "getNotifications"]);
 

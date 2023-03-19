@@ -126,7 +126,9 @@ class AuthController extends Controller
         else {
             $users = User::where('gender', '<>' , $gender)->get();
         }
+        for($i=0;$i<count($users);$i++){
 
+        }
         return response()->json([
             'status' => 'success',
             'users' => $users,
