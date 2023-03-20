@@ -38,11 +38,23 @@
         <li>
           <a href="profile.html">
             <div class="profile">
-              <p>ali janbein</p>
+              <p id="name1">ali janbein</p>
               <img
-                id="avatar"
+                id="image1"
                 class="avatar"
                 src="./img/Unknown_person.jpg"
+                alt=""
+              />
+            </div>
+          </a>
+        </li>
+        <li>
+          <a id="logout1" href="register.html">
+            <div class="profile">
+              <p >Logout</p>
+              <img
+                class="avatar"
+                src="./img/logout-removebg-preview.png"
                 alt=""
               />
             </div>
@@ -79,11 +91,24 @@
               <li>
                 <a href="profile.html">
                   <div class="profile">
-                    <p>ali janbein</p>
+                    <p id="name2">ali janbein</p>
                     <img
-                      id="avatar"
+                      id="image2"
                       class="avatar"
                       src="./img/Unknown_person.jpg"
+                      alt=""
+                    />
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a id="logout2" href="register.html">
+                  <div class="profile">
+                    <p id="name">Logout</p>
+                    <img
+                      id="image"
+                      class="avatar"
+                      src="./img/logout-removebg-preview.png"
                       alt=""
                     />
                   </div>
@@ -99,61 +124,52 @@
       </div>
     </div>
     <div id="main" class="main">
-      <div class="wrap">
-        <div class="search">
-          <input
-            id="search"
-            type="text"
-            class="searchTerm"
-            placeholder="Search for a partner ?"
-          />
-          <button id="submit-search" type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-        <div class="hobbies radio">
-          <div>
-            <label>
-              <input
-                style="display: none"
-                id="age-filter"
-                type="checkbox"
-                name="user-filter"
-                value="age"
-              />
-              <span>Filter by my Age</span>
-            </label>
+      <div id="user-content">
+        <div class="wrap">
+          <div class="search">
+            <input
+              id="search"
+              type="text"
+              class="searchTerm"
+              placeholder="Search for a partner ?"
+            />
+            <button id="submit-search" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
           </div>
-          <div>
-            <label>
-              <input
-                style="display: none"
-                id="location-filter"
-                type="checkbox"
-                name="user-filter"
-                value="location"
-              />
-              <span>Filter by my location</span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="users" id="result-search">
-        <div class="user">
-          <img src="./img/Unknown_person.jpg" alt="" class="user__image" />
-          <div>
-            <h5>Alinj sama</h5>
-            <div class="buttons">
-             <button id="favorite" class="favorite">Favorite</button>
-             <button id="block" class="block">block</button>
-             <button id="message" class="message">message</button>
+          <div class="hobbies radio">
+            <div>
+              <label>
+                <input
+                  style="display: none"
+                  id="age-filter"
+                  type="checkbox"
+                  name="user-filter"
+                  value="age"
+                />
+                <span>Filter by my Age</span>
+              </label>
             </div>
-            <h6>bioawdsdawdsawdasawd wdwd awda d dawdsaawdsawds</h6>
+            <div>
+              <label>
+                <input
+                  style="display: none"
+                  id="location-filter"
+                  type="checkbox"
+                  name="user-filter"
+                  value="location"
+                />
+                <span>Filter by my location</span>
+              </label>
+            </div>
           </div>
+        </div>
+        <div class="users" id="result-search">
+          
         </div>
       </div>
     </div>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/work_place.js"></script>
     <script src="./src/index.js"></script>
   </body>

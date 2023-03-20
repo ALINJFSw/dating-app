@@ -37,7 +37,7 @@ class BlockController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'block has ben commited',
-            'todo' => $block,
+            'block' => $block,
         ]);
 
     }

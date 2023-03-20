@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="./css/register.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="./css/register.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main">
-        <div class="form-container">
-          <div class="form-content">
-            <h2><a href="./index.html">Dating App</a></h2>
-            <h3>Register</h3>
-          
-              <input id="fname" type="text" placeholder="First Name" />
-              <input id="lname" type="text" placeholder="Last Name" />
-              <input id="email" type="text" placeholder="email" />
-              <input id="password" type="password" placeholder="Password" />
-              <input id="age" type="text" placeholder="age" />
-              <input id="city" type="text" placeholder="city" />
-              <div class="gender radio">
-                <div>
-                  <label>
-                    <input id="male" type="radio" name="search-gender" value="male" checked />
-                    <span>Man</span>
-                  </label>
-                </div>
-    
-                <div>
-                  <label>
-                    <input id="female" type="radio" name="search-gender" value="female" />
-                    <span>Woman</span>
-                  </label>
-                </div>
-              </div>
-              <input class="btn-login" type="submit" value="Register" />
-            <p>
-              Already have an account ?
-              <a href="login.html">Login</a>
-            </p>
+      <div class="form-container">
+        <div class="form-content">
+          <h2><a href="./index.html">Dating App</a></h2>
+          <h3>Register</h3>
+
+          <input id="first_name" type="text" placeholder="First Name" />
+          <input id="last_name" type="text" placeholder="Last_name " />
+          <input id="email" type="text" placeholder="email" />
+          <input id="password" type="password" placeholder="Password" />
+          <input id="age" type="text" placeholder="age" />
+          <input id="city" type="text" placeholder="city" />
+          <div class="gender radio">
+            <div>
+              <label>
+                <input
+                  id="male"
+                  type="radio"
+                  name="search-gender"
+                  value="male"
+                  checked
+                />
+                <span>Man</span>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                <input
+                  id="female"
+                  type="radio"
+                  name="search-gender"
+                  value="female"
+                />
+                <span>Woman</span>
+              </label>
+            </div>
           </div>
+          <input
+            class="btn-login"
+            type="submit"
+            id="register"
+            value="Register"
+          />
+          <p>
+            Already have an account ?
+            <a href="login.html">Login</a>
+          </p>
         </div>
       </div>
-      
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/work_place.js"></script>
-    <script src="./src/register.js"></script>
-</body>
+    <script src="./src/auth/auth.js"></script>
+    <script src="./src/auth/register.js"></script>
+  </body>
 </html>

@@ -10,13 +10,19 @@ body {
 }
 
 
-.main {
+.main ,.notification{
     width: 60%;
     border: 1px solid #fff ;
     padding: 2rem;
     display: flex;
+    margin-top: 1rem;
     justify-content: space-between;
     align-items: center;
+}
+
+.notification {
+    flex-direction: column;
+    padding: 0 1rem;
 }
 
 .noti {
@@ -43,7 +49,7 @@ body {
 }
 
 @media (max-width:800px) {
-    .main {
+    .main,.notification {
         width: 100%;
         padding:20px 10px;
     }

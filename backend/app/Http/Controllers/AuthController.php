@@ -47,19 +47,23 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
+            'profile_image' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
-             'gender' => 'required|string|max:255',
-             'city' => 'required|string|max:255',
-             'age' =>'required|string|max:255'
-             
+            'gender' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'age' => 'required|string|max:255'
+
 
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'first_name' => $request->fname,
+            'last_name' => $request->lname,
             'email' => $request->email,
+            'profile_image' => "image",
             'password' => Hash::make($request->password),
             'gender' => $request->gender,
             'city' => $request->city,
@@ -99,42 +103,41 @@ class AuthController extends Controller
         ]);
     }
 
-    public function getUsers(Request $request){
+    public function getUsers(Request $request)
+    {
         $gender = Auth::user()->gender;
         $user_id = Auth::user()->user_id;
 
         $users = [];
         $request->validate([
-            'city' => 'string|max:255',
-             'age' =>'string|max:255'
+            
+            'name' => 'required|string|max:255',
         ]);
-        
-        
-        if ($request->city) {
-            $city = Auth::user()->city;
-            $users = User::where('gender', '<>' , $gender)->where("city",$city)->get();
-        }
-        else if($request->age) {
-            $age = Auth::user()->age;
-            $users = User::where('gender', '<>' , $gender)->where("age",$age)->get();
-        }
-        else if($request->city && $request->age){
-            $city = Auth::user()->city;
-            $age = Auth::user()->age;
-            $users = User::where('gender', '<>' , $gender)->where("age",$age)->where("city",$city)->get();
-        }
-        else {
-            $users = User::where('gender', '<>' , $gender)->get();
-        }
-        for($i=0;$i<count($users);$i++){
 
+
+        if ($request->city && !$request->age) {
+            $city = Auth::user()->city;
+            $users = User::where('gender', '<>', $gender)->where("first_name", $request->name)->where("city", $city)->get();
+        } else if ($request->age && !$request->city) {
+            $age = Auth::user()->age;
+            $users = User::where('gender', '<>', $gender)->where("first_name", $request->name)->where("age", $age)->get();
+        } else if ($request->city && $request->age) {
+            
+            $city = Auth::user()->city;
+            $age = Auth::user()->age;
+            $users = User::where('gender', '<>', $gender)->where("first_name", $request->name)->where("age", $age)->where("city", $city)->get();
+        } else {
+            print($request -> first_name);
+            $users = User::where('gender', '<>', $gender)->where("first_name", $request->name)->get();
         }
+        
         return response()->json([
             'status' => 'success',
             'users' => $users,
         ]);
     }
-    public function getUserInfo() {
+    public function getUserInfo()
+    {
         $user_id = Auth::user()->id;
         $user_info = User::find($user_id);
         return response()->json([
@@ -144,24 +147,29 @@ class AuthController extends Controller
     }
 
 
-    public function updateUser(Request $request){
+    public function updateUser(Request $request)
+    {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
             'email' => 'required|string|max:255',
             'age' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'gender' => 'required|string|max:255',
+            'profile_image' => 'required|string|max:255',
             'bio' => 'string|max:255',
             'image1' => 'string|max:255',
             'image2' => 'string|max:255',
-            'image3' => 'string|max:255',     
+            'image3' => 'string|max:255',
         ]);
         $user_id = Auth::user()->id;
         $updatedUser = User::find($user_id);
-        $updatedUser->name = $request->name;
+        $updatedUser->first_name = $request->fname;
+        $updatedUser->last_name = $request->name;
         $updatedUser->email = $request->email;
         $updatedUser->age = $request->age;
         $updatedUser->city = $request->city;
+        $updatedUser->profile_image = $request->profile_image;
         $updatedUser->gender = $request->gender;
         if ($request->bio) {
             $updatedUser->bio = $request->bio;
@@ -182,5 +190,24 @@ class AuthController extends Controller
             'user' => $updatedUser,
         ]);
     }
+
+    public function getRuningUser()
+    {
+        $user = [];
+        return response()->json([
+            'status' => 'success',
+            'user' => Auth::user()
+        ]);
+    }
+
+    public function getUserById(Request $request)
+    {   
+        $user = User::find($request->id);
+        return response()->json([
+            'status' => 'success',
+            'user' => $user
+        ]);
+    }
+
 
 }

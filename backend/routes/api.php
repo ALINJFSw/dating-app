@@ -25,6 +25,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
     Route::post('get-users', 'getUsers');
     Route::post('update-user', 'updateUser');
+    Route::post('get-user', 'getRuningUser');
+    Route::post('get-user-by-id', 'getUserById');
 
 
 });
@@ -32,6 +34,6 @@ Route::controller(AuthController::class)->group(function () {
 Route::post('/add-to-favorite',[FavoritController::class, "addToFavorite"]);
 Route::post('/block',[blockController::class, "block"]);
 Route::post('/send-message',[MessageController::class, "sendMessage"]);
-Route::get('/get-messages',[MessageController::class, "getMessages"]);
-Route::get('/get-notifications',[NotificationController::class, "getNotifications"]);
+Route::post('/get-messages',[MessageController::class, "getMessages"]);
+Route::post('/get-notifications',[NotificationController::class, "getNotifications"]);
 

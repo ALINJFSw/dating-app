@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\block;
 use App\Models\Message;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Namshi\JOSE\Signer\OpenSSL\None;
@@ -35,6 +36,13 @@ class MessageController extends Controller
             "message" =>$request->message
         ]);
 
+        $notification = Notification::create([
+            "user_id" => $user_id,
+            "target_id" => $request->target_id,
+            "type" => "message",
+            "message" => "sent you a message"
+        ]);
+
         return response()->json([
             "status" => "success",
             "message" => $message
@@ -43,7 +51,7 @@ class MessageController extends Controller
 
     public function getMessages() {
         $user_id = Auth::user()->id;
-        $messages = Message::find($user_id);
+        $messages = Message::where("target_id",$user_id)->get();
         return response()->json([
             "status" => "success",
             "message" => $messages
