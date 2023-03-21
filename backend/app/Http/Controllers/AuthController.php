@@ -15,7 +15,7 @@ class AuthController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register','retrevePassword']]);
     }
 
     public function login(Request $request)
@@ -209,5 +209,36 @@ class AuthController extends Controller
         ]);
     }
 
+    public function retrevePassword(Request $request){
+        $request->validate([
+            'email' => 'required|string|max:255',
+            'age' => 'required|int|max:100',
+            'city' => 'required|string|max:255',
+            'password' => 'required|string|max:255',
+        ]);
+        $user = User::where("email",$request->email)->first();
+        if (!$user) {
+            return response()->json([
+                "status" => "faild",
+                "response" => "this email does not exist"
+            ]);
+        }
+        if($user->age == $request->age && $user->city == $request->city){
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return response()->json([
+                "status" => "user password updated",
+                "response" => "succes"
+            ]);
+        }
+        else{
+            return response()->json([
+                "status" => "faild",
+                "response" => "your age or city are invalid"
+            ]);
+        }        
+    }
+
+  
 
 }

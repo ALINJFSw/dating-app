@@ -27,6 +27,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('update-user', 'updateUser');
     Route::post('get-user', 'getRuningUser');
     Route::post('get-user-by-id', 'getUserById');
+    Route::post('reset-password', 'retrevePassword');
 
 
 });
