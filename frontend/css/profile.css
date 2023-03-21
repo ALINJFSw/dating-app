@@ -30,7 +30,10 @@ body {
   .images {
     width: 100%;
   }
-
+  .small-image{
+    width: 30%;
+    margin: 2rem 3rem;
+  }
   .small {
     width: 100%;
     display: flex;
@@ -94,5 +97,8 @@ body {
     .main {
         width: 100%;
         padding: 0 2rem;
+    }
+    .small {
+        flex-direction: column;
     }
 }

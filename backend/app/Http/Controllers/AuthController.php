@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use URL;
 
 class AuthController extends Controller
 {
@@ -110,7 +112,7 @@ class AuthController extends Controller
 
         $users = [];
         $request->validate([
-            
+
             'name' => 'required|string|max:255',
         ]);
 
@@ -122,15 +124,15 @@ class AuthController extends Controller
             $age = Auth::user()->age;
             $users = User::where('gender', '<>', $gender)->where("first_name", $request->name)->where("age", $age)->get();
         } else if ($request->city && $request->age) {
-            
+
             $city = Auth::user()->city;
             $age = Auth::user()->age;
             $users = User::where('gender', '<>', $gender)->where("first_name", $request->name)->where("age", $age)->where("city", $city)->get();
         } else {
-            print($request -> first_name);
+            print($request->first_name);
             $users = User::where('gender', '<>', $gender)->where("first_name", $request->name)->get();
         }
-        
+
         return response()->json([
             'status' => 'success',
             'users' => $users,
@@ -150,13 +152,7 @@ class AuthController extends Controller
     public function updateUser(Request $request)
     {
         $request->validate([
-            'fname' => 'required|string|max:255',
-            'lname' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'age' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'gender' => 'required|string|max:255',
-            'profile_image' => 'required|string|max:255',
+            'profile_image' => 'required|image',
             'bio' => 'string|max:255',
             'image1' => 'string|max:255',
             'image2' => 'string|max:255',
@@ -164,13 +160,17 @@ class AuthController extends Controller
         ]);
         $user_id = Auth::user()->id;
         $updatedUser = User::find($user_id);
-        $updatedUser->first_name = $request->fname;
-        $updatedUser->last_name = $request->name;
-        $updatedUser->email = $request->email;
-        $updatedUser->age = $request->age;
-        $updatedUser->city = $request->city;
-        $updatedUser->profile_image = $request->profile_image;
-        $updatedUser->gender = $request->gender;
+        if ($request->hasFile('profile_image'))
+
+            $request->validate([
+                'image' => 'mimes:jpeg,bmp,png'
+            ]);
+        if ($request->file('profile_image') == null) {
+            $file = "";
+        } else {
+            $path = Storage::putFile('avatars', $request->file('profile_image'));
+           $updatedUser->profile_image = URL::asset($path);
+        }
         if ($request->bio) {
             $updatedUser->bio = $request->bio;
         }
@@ -187,7 +187,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'user updated successfully',
-            'user' => $updatedUser,
+            'user' => $request->file('profile_image'),
         ]);
     }
 
@@ -201,7 +201,7 @@ class AuthController extends Controller
     }
 
     public function getUserById(Request $request)
-    {   
+    {
         $user = User::find($request->id);
         return response()->json([
             'status' => 'success',

@@ -229,4 +229,9 @@ Work_place.getNotifications = async () => {
   });
 };
 
+Work_place.editProfile = async() => {
+ 
+
+}
+
 
