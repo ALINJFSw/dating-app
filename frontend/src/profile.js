@@ -18,6 +18,7 @@ const input2 = document.getElementById("img2")
 const input3 = document.getElementById("img3")
 const formData = new FormData()
 profile_input.addEventListener("change",(e)=>{
+    const bio = document.getElementById("bio");
 // const fileReader = new FileReader()
 // fileReader.addEventListener("load",()=>{
 //     formData.append("profile_image",fileReader.result)
@@ -30,6 +31,7 @@ formData.append("profile_image",event.target.files[0]);
 })
 save.addEventListener("click",async ()=> {
     formData.append("name","alinj")
+    formData.append("bio",bio);
     console.log(formData);
     const response = await Work_place.postData("http://127.0.0.1:8000/api/update-user",formData, {
 headers: {
